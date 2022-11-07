@@ -7,8 +7,8 @@ tasks:
     default: true
     language: Raku
     code: |
-      use Pretty::Table;
-      my $table = Pretty::Table.new:
+      use Prettier::Table;
+      my $table = Prettier::Table.new:
         title => "Rakudo Versions",
         field-names => ["Version", "Status", "Time"],
         sort-by => 'Version',
@@ -62,7 +62,7 @@ tasks:
           rakubrew download moar-$version
           rakubrew switch moar-$version
           cd source/
-          zef install --/test Pretty::Table
+          zef install --/test Prettier::Table
           zef install . --deps-only --test-depends --/test
           /usr/bin/time -o "${cache_root_dir}/${version}_time" \
           zef test . && touch "${cache_root_dir}/${version}_ok"
